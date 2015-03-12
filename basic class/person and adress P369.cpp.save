@@ -1,0 +1,22 @@
+#include <string>;
+
+using std::string ;
+
+class person_adress 
+{
+	
+public:
+	person_adress():name("undefine");adress("undefine"){}
+	
+	person_adress(string Name,string Adress):name(Name), adress (Adress) {}
+	
+	string getname () { return name ;}
+	string getadress () {return adress;}
+	
+	string setname (string Name) {this-> name = Name ; retuen}
+	
+private:
+	string name;
+	string adress;
+	
+};
