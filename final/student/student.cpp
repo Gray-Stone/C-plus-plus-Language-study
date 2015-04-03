@@ -1,9 +1,13 @@
 #include<vector>
+#include<list>
 #include<string>
 #include"course.cpp"
 
 using std::string;
 using std::vector;
+using std::list;
+
+
 
 class student
 {
@@ -12,28 +16,31 @@ public:
 	string getname() {return name;}
 	void setname(string a){name=a;}
 
-	int addcourse(string course_name)
+	int add_subject(string course_name, course::times time)
 	{
-		if ()	// if there is no same course
+		for (iter= subject.begin();iter!=subject.end();iter++)
 		{
-			course temp(course_name);
-			subjects.push_back(temp);
-			return 1;
+			if(course_name < iter->getname)
 		}
-		else	// if there is same named course, return 0 [give out warning
-		{
-			course temp(course_name);
-			subjects.push_back(temp);
-			return 0;
-		 }
+	}
+	int add_subject(string course_name, int fgrade)
+	{
+
+	}
+	int add_subject(string course_name, int fgrade, int mgrade)
+	{
 
 	}
 
 private:
 
+
 	string name ;
-	vector<course> subjects ;
-	int gradute ;
+	list<course> subject;
+	list<course>::iterator iter;
+
+	string note;
+
 
 
 
