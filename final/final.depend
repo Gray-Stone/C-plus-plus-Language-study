@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1428109137 source:c:\sorce.file\programe\c++ language\final\student\course.cpp
+	<string>
+	<vector>
+
+1428081366 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
+	<vector>
+	<list>
+	<string>
+	"course.cpp"
+
+1428081580 c:\sorce.file\programe\c++ language\final\student\course.cpp
+	<string>
+	<vector>
+

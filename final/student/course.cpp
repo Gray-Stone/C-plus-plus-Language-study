@@ -10,17 +10,14 @@ public:
 		int year;
 		int term ;
 		char block;
-		int cheack_time (){return year*10+term;} // 用于同一个学生不同学期上同样的课时排序比较用
+		int check_time (){return year*10+term;} // 用于同一个学生不同学期上同样的课时排序比较用
 	};
 
 		//构造函数
 
 	course():name("untitled course"),fgrade(-1),mgrade(-1),time(),commons() ,note() {}	//空课程
 
-	course(string _name):name(_name),fgrade(-1),mgrade(-1),time(),commons() {}			//只有名字
 	course(string _name, times _time) :name(_name),fgrade(-1),mgrade(-1),time(_time),commons(),note() {}//名字和时间
-	course(string _name,times _time,int _fgrade) :name(_name),fgrade(_fgrade),mgrade(-1),time(_time),commons(),note() {}//名字时间和期末成绩
-	course(string _name,times _time,int _fgrade,int _mgrade) :name(_name),fgrade(_fgrade),mgrade(_mgrade),time(_time),commons(),note(){}//名字时间期末成绩和期中成绩
 
 		// end
 	void setname (string a) {name=a;}	// 更改名字
@@ -31,6 +28,11 @@ public:
 
 	void setcommons(string common) { commons=common;}	//更改评语
 	string getcommons () {return commons;}				//返回评语
+
+	int checktime ()
+	{
+		return time.check_time();
+	}
 
 
 private:
