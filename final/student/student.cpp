@@ -76,17 +76,19 @@ public:
 		}
 	}
 
-	course exist_course (string name,course::times _time)
+	pair< list<course>::iterator,bool > exist_course (string name,course::times _time)
 	{
 		list<course>::iterator iter;
 		for (iter = subject.begin();  iter!=subject.end() && (iter->getname() <= name );iter++)
 		{
 
 				if (iter->getname() == name )
-					if (iter->checktime()== _time.check_time() )break;
+					if (iter->checktime()== _time.check_time() ) return make_pair(iter,true);
 		}
 
-		return *(--iter);
+		return make_pair(iter,false);
+
+
 	}
 
 
