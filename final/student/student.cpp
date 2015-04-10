@@ -18,9 +18,17 @@ public:
 
 	string getname() {return name;}
 	void setname(string a){name=a;}
+	string getnote() {return note;}
+	void setnote(string _note) {note=_note;}
+
+//////////////////////////////////////
 
 
-////
+
+
+//////////////////////////////////////
+//// adding subjects
+//// first
 	pair< list<course>::iterator,bool > add_subject(string course_name, course::times time) // add a subject with only name and time
 	{
 		list<course>::iterator iter;
@@ -37,7 +45,7 @@ public:
 			{
 			}
 			if(time.check_time() == iter->checktime())
-				return make_pair(course(),false);	//if there are same course in same time. there will be a error
+				return make_pair(iter,false);	//if there are same course in same time. there will be a error
 		}
 
 //		course temp(course_name ,time) ;
@@ -45,7 +53,7 @@ public:
 		--iter;
 		return make_pair(iter,true);
 	}
-////
+//// second
 
 	pair< list<course>::iterator,bool > add_subject(string course_name, course::times time ,int mgrade)	// add a subject with name time and midtrem
 	{
@@ -62,13 +70,14 @@ public:
 		}
 	}
 
+//// third
 	pair< list<course>::iterator,bool > add_subject(string course_name, course::times time , int mgrade,int fgrade)	// add a subject with name time and final
 	{
 		pair< list<course>::iterator , bool > temp;
 		list<course>::iterator iter;
 		temp =add_subject(course_name,time);
 		if (temp.second)
-			return make_pair(course(),false);
+			return make_pair(iter,false);
 		else
 		{
          iter->setfgrade(fgrade);
@@ -76,29 +85,59 @@ public:
 		}
 	}
 
-	pair< list<course>::iterator,bool > exist_course (string name,course::times _time)
+/////////////////////////////////////
+
+
+
+/////////////////////////////////////
+//check course exeist
+//  if the course exeist, return the iter and ture
+//  if not exeist, return the
+	pair< list<course>::iterator,int > exist_course (string _name,course::times _time)
 	{
 		list<course>::iterator iter;
-		for (iter = subject.begin();  iter!=subject.end() && (iter->getname() <= name );iter++)
+		for (iter = subject.begin(); iter!=subject.end() && (iter->getname() <= _name );iter++)
 		{
-
-				if (iter->getname() == name )
-					if (iter->checktime()== _time.check_time() ) return make_pair(iter,true);
+				if (iter->getname() == _name )
+					if (iter->checktime()== _time.check_time() )
+						return make_pair(iter,1);
 		}
-
-		return make_pair(iter,false);
-
-
+		return make_pair(iter,0);
 	}
 
+// check for mutipal course
+	pair< list<course>::iterator,int > exist_course (string _name)
+	{
+		list<course>::iterator iter1;
+		list<course>::iterator iter2;
+		int i ;
+		for (iter1= subject.begin() ; iter1!=subject.end() ; ++iter1)
+		{
+			if ( iter1->getname() == name)
+				{
+					for (iter2=iter1, i=1 ; iter2!=subject.end();++iter2,++i)
+						if (iter2->getname() != _name)
+							break;
+					return make_pair(iter1,i);
+				}
+		}
 
+		return make_pair (iter2,0);
+	}
+
+// return all course within this term
+	list<course> course_term (course::times _time)
+	{
+		list<course> rt;
+		list<course>::iterator iter;
+		for (iter=subject
+	}
 private:
 
 
 	string name ;
 	list<course> subject;
 //	list<course>::iterator iter;	//doesn't seem necessary
-
 	string note;
 
 
