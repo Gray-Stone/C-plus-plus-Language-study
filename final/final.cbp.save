@@ -19,6 +19,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="main.cpp" />
 		<Unit filename="student/course.cpp" />
 		<Unit filename="student/student.cpp" />
 		<Extensions>

@@ -16,6 +16,8 @@ class student
 {
 public:
 
+	student(string _name):name(_name){;}
+
 	string getname() {return name;}
 	void setname(string a){name=a;}
 	string getnote() {return note;}
@@ -130,7 +132,14 @@ public:
 	{
 		list<course> rt;
 		list<course>::iterator iter;
-		for (iter=subject
+		for (iter=subject.begin(); iter!=subject.end();iter++)
+		{
+            if (iter->checktime()==_time.check_time())
+			{
+				rt.push_back(*iter);
+			}
+		}
+		return rt;
 	}
 private:
 
@@ -139,9 +148,4 @@ private:
 	list<course> subject;
 //	list<course>::iterator iter;	//doesn't seem necessary
 	string note;
-
-
-
-
-
 };
