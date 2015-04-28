@@ -3,7 +3,7 @@
 	<string>
 	<vector>
 
-1429035139 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
+1430242260 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>
@@ -14,13 +14,14 @@
 	<string>
 	<vector>
 
-1429839992 source:c:\sorce.file\programe\c++ language\final\main.cpp
+1430241818 source:c:\sorce.file\programe\c++ language\final\main.cpp
 	<iostream>
 	<list>
 	<string>
 	"student\student.cpp"
+	<limits>
 
-1429035139 c:\sorce.file\programe\c++ language\final\student\student.cpp
+1430241889 c:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>

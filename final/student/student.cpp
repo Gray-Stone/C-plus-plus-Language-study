@@ -17,10 +17,11 @@ class student
 public:
 
 	student(string _name):name(_name){;}
+	student(): name("unnamed"),note("no note"){;}
 
-	string getname() {return name;}
+	string getname() {return this->name;}
 	void setname(string a){name=a;}
-	string getnote() {return note;}
+	string getnote() {return this->note;}
 	void setnote(string _note) {note=_note;}
 
 //////////////////////////////////////
@@ -75,7 +76,7 @@ public:
 //// third
 	pair< list<course>::iterator,bool > add_subject(string course_name, course::times time , int mgrade,int fgrade)	// add a subject with name time and final
 	{
-		pair< list<course>::iterator , bool > temp;
+		pair< list<course>::iterator,bool > temp;
 		list<course>::iterator iter;
 		temp =add_subject(course_name,time);
 		if (temp.second)
@@ -85,6 +86,32 @@ public:
          iter->setfgrade(fgrade);
          return make_pair(iter,true);
 		}
+	}
+
+///// direct use course
+//// need fix
+	pair< list<course>::iterator,bool > add_subject( course _course )
+	{
+		list<course>::iterator iter;
+			for (iter= subject.begin();iter!=subject.end();iter++)
+			{
+				if( _course.getname() <= iter->getname())
+				{break;	}
+				// warning for logical check
+				// check_time and checktime is defined in struct times and class course it should point to same thing.
+			}
+			if(_course.getname()== iter->getname())
+			{
+				for(; _course.checktime() < iter->checktime() && iter!=subject.end();iter++)
+				{
+				}
+				if( _course.checktime() == iter->checktime())
+					return make_pair(iter,false);	//if there are same course in same time. there will be a error
+			}
+
+			subject.insert(iter,_course);
+			--iter;
+			return make_pair(iter,true);
 	}
 
 /////////////////////////////////////
@@ -147,5 +174,5 @@ private:
 	string name ;
 	list<course> subject;
 //	list<course>::iterator iter;	//doesn't seem necessary
-	string note;
+	string note="no note";
 };
