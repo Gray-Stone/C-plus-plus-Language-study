@@ -26,8 +26,17 @@ public:
 	void setfgrade (int fgrade) {this->fgrade=fgrade;}	//更改期中成绩
 	void setmgrade (int mgrade) {this->mgrade=mgrade;}	//更改期末成绩
 
+	int getfgrade () {return this->fgrade;}		// 返回期中成绩
+	int getmgrade () {return this->mgrade;}		// 返回期末成绩
+
 	void setcommons(string common) { commons=common;}	//更改评语
 	string getcommons () {return commons;}				//返回评语
+
+	void setnote (string note) {this->note = note;}
+	string getnote () {return this->note;}
+
+	void settime (times time) {this->time = time;}
+	times gettime () {return this->time;}
 
 	int checktime ()
 	{

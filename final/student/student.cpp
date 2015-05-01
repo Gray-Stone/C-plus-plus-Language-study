@@ -23,6 +23,7 @@ public:
 	void setname(string a){name=a;}
 	string getnote() {return this->note;}
 	void setnote(string _note) {note=_note;}
+	list<course> getallcourse() {return this->subject;}
 
 //////////////////////////////////////
 

@@ -28,7 +28,7 @@ student make_student ()
 ////////// add_time //////////
 course::times make_time()
 {
-	cout <<"enter year, term, block "<<endl;
+	cout <<" enter year, term, block "<<endl;
 	course::times time;
 	cin>>time.year;
 	cin>>time.term;
@@ -44,7 +44,7 @@ course make_course()
 	// name
 
 	string name;
-	cout<< "name of the course"<<endl;
+	cout<< " name of the course"<<endl;
 	cin>> name;
 
 	////////
@@ -55,7 +55,67 @@ course make_course()
 }
 //////////////
 
+//////// time print //////////
+void time_print (course::times time)
+{
+	cout<<time.year<< "  Term"<<time.term<< "  Block: " <<time.block<<endl;
+}
 
+//////// course print /////////
+void course_print (course &cou)
+{
+	cout << " name :"<< cou.getname() << " course date " ;
+	time_print(cou.gettime());
+	cout << " midterm"<< cou.getmgrade() << " final" << cou.getfgrade() <<endl;
+	cout << " commons :	";
+	cout<<cou.getcommons()<<endl;
+	cout<<" notes:	";
+	cout<<cou.getnote()<<endl;
+
+}
+
+/////// print all course ///////
+void print_all_course(list<course> &lis)
+{
+	list<course>::iterator iter;
+	for (iter=lis.begin();liter!=lis.end(),iter++){coutse_print(*iter)}
+	cout<<" end of list" <<endl;
+}
+
+/////// print all course name ////
+void print_all_course_name (list<course> &lis)
+{
+	list<course>::iterator iter ;
+	for (iter=lis.begin();iter!=lis.end();iter++)
+	{
+		cout<< " name: " << iter->getname() << "  ";
+		time_print(iter->gettime());
+	}
+	cout<<" end of list" <<endl;
+}
+
+
+/////// 修改学生信息 ////////
+void modify_student(student &stu)
+{
+	string intemp;
+	list<course> clist = stu.getallcourse();
+	// 选择何种操作
+	cout <<" a 		: list of all course"<<endl;
+	cout <<" b 		: list of all course with score and commons" <<endl;
+	cout <<" add 	: add a course" <<endl;
+	cout <<" note	: note "<<endl;
+	if (intemp=="a"){print_all_course_name(clist);}
+	if (intemp=="b"){print_all_course(clist);}
+	if (intemp=="add")
+	{
+		pair< list<course>::iterator,bool > tpair; //// add_subject 的返回类型
+		tpair=stu.add_subject( make_course());
+		if (tpair.second==false) {cout<<" fail to add course "<<endl;}
+		else  if (tpair.second==true) {cout<<" succedd to add course "<<endl;}
+	}
+	if (intemp=="note") {cout<<stu.getnote()<<endl;}
+}
 
 
 int main()
@@ -69,11 +129,11 @@ int main()
 	for (;;)
 	{
 		string temp0;
-		cout<< "add / print or change /" <<endl;
+		cout<< " add / printall students /" <<endl;
 		cin >>temp0;
 
 		////////// add /////////////
-		if (temp0=="add")
+		if (temp0=="add") //// 完成
 		{
 				student temp = make_student(); ///// 构造新的学生对象
 				///// 修改该学生 /////
@@ -92,7 +152,7 @@ int main()
 					pair< list<course>::iterator,bool > tpair; //// add_subject 的返回类型
 					tpair=temp.add_subject( make_course());
 					if (tpair.second==false) {cout<<" fail to add course "<<endl;}
-					else  if (tpair.second==true) {cout<<"succedd to add course "<<endl;}
+					else  if (tpair.second==true) {cout<<" succedd to add course "<<endl;}
 				}
 
 				if (intemp=="n")	/////change note
@@ -121,7 +181,6 @@ int main()
 
 		//////////////////////////////
 
-
 		///////// print ///////////////
 		if (temp0=="print")
 		{
@@ -130,6 +189,29 @@ int main()
 			{
 				// print name
 				cout<<iter->getname()<<endl;
+				cout<<"select for pick single student " <<endl;
+			}
+		}
+		/////////////////////////////
+
+		///////// 提取单个学生 ///////
+		if (temp0=="select")
+		{
+			for (;;)
+			{
+				string intemp ; //输入缓存变量
+				string _name ;
+				list<student>::iterator iter;
+
+				cout<<"pleas enter name" <<endl;
+				cin>> _name ;	// 获得学生名称
+
+				// 查找学生
+				for (iter=stu.begin();iter!=stu.end();iter++) {if (iter->getname()==_name) break;}
+				if (iter==stu.end()) {cout<<"didn't find the student"<<endl;break;}
+				cout<< "found";
+				cout<<"  " <<iter->getname()<<endl;
+				modify_student (*iter);
 
 			}
 		}
