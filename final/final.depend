@@ -1,27 +1,27 @@
 # depslib dependency file v1.0
-1429034370 source:c:\sorce.file\programe\c++ language\final\student\course.cpp
+1430328472 source:c:\sorce.file\programe\c++ language\final\student\course.cpp
 	<string>
 	<vector>
 
-1430242260 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
+1430415933 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>
 	<string>
 	"course.cpp"
 
-1429034370 c:\sorce.file\programe\c++ language\final\student\course.cpp
+1430328472 c:\sorce.file\programe\c++ language\final\student\course.cpp
 	<string>
 	<vector>
 
-1430241818 source:c:\sorce.file\programe\c++ language\final\main.cpp
+1430326818 source:c:\sorce.file\programe\c++ language\final\main.cpp
 	<iostream>
 	<list>
 	<string>
 	"student\student.cpp"
 	<limits>
 
-1430241889 c:\sorce.file\programe\c++ language\final\student\student.cpp
+1430242260 c:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>

@@ -3,3 +3,8 @@
 *.o
 *.cpp.save
 *.cbp
+*.cbp
+*.cbp.save
+*.depend
+*.layout
+*.layout.save

@@ -78,7 +78,7 @@ void course_print (course &cou)
 void print_all_course(list<course> &lis)
 {
 	list<course>::iterator iter;
-	for (iter=lis.begin();liter!=lis.end(),iter++){coutse_print(*iter)}
+	for (iter=lis.begin();iter!=lis.end();iter++){course_print(*iter);}
 	cout<<" end of list" <<endl;
 }
 
@@ -100,21 +100,31 @@ void modify_student(student &stu)
 {
 	string intemp;
 	list<course> clist = stu.getallcourse();
+
 	// 选择何种操作
 	cout <<" a 		: list of all course"<<endl;
 	cout <<" b 		: list of all course with score and commons" <<endl;
 	cout <<" add 	: add a course" <<endl;
-	cout <<" note	: note "<<endl;
+	cout <<" note	: note n for not change"<<endl;
 	if (intemp=="a"){print_all_course_name(clist);}
 	if (intemp=="b"){print_all_course(clist);}
+
+	// 插入课程
 	if (intemp=="add")
 	{
 		pair< list<course>::iterator,bool > tpair; //// add_subject 的返回类型
-		tpair=stu.add_subject( make_course());
-		if (tpair.second==false) {cout<<" fail to add course "<<endl;}
-		else  if (tpair.second==true) {cout<<" succedd to add course "<<endl;}
+		tpair=stu.add_subject( make_course());	//	插入
+		if (tpair.second==false) {cout<<" fail to add course "<<endl;}	// 插入失败
+		else  if (tpair.second==true) {cout<<" succedd to add course "<<endl;}	//插入成功
 	}
+
+	// 显示或更变note
 	if (intemp=="note") {cout<<stu.getnote()<<endl;}
+	{
+		cout <<"new note:"<<endl;
+		getline(cin, intemp);
+		if (intemp !="n"){stu.setnote(intemp);}
+	}
 }
 
 
