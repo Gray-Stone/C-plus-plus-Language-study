@@ -1,7 +1,14 @@
 #include <string>
 #include <vector>
+#include <fstream>
+#include <iostream>
 
 using std::string;
+using std::ifstream;
+using std::ofstream;
+using std::ios;
+using std::endl;
+
 class course
 {
 public:
@@ -41,6 +48,25 @@ public:
 	int checktime ()
 	{
 		return time.check_time();
+	}
+
+	void save(string fpath)
+	{
+
+		ofstream fout ((fpath+name+".crs").c_str(),ios::out); // need change
+		fout<<"courseinfo"<<endl;
+		fout<<name<<endl;
+		fout<<time.year<<endl;
+		fout<<time.term<<endl;
+		fout<<time.block<<endl;
+
+		fout<<"mgrade/fgrade/commons/notes/"<<endl;
+		fout<<mgrade<<endl;
+		fout<<fgrade<<endl;
+		fout<<commons<<endl;
+		fout<<"end of commons"<<endl;
+		fout<<note<<endl;
+		fout<<"end of note"<<endl;
 	}
 
 

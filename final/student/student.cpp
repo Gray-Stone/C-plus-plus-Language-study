@@ -3,12 +3,19 @@
 #include<utility>
 #include<string>
 #include"course.cpp"
+#include <fstream>
+#include <iostream>
+#include <direct.h> /////       _mkdir () ////////////
 
 using std::string;
 using std::vector;
 using std::list;
 using std::pair;
 using std::make_pair;
+using std::ifstream;
+using std::ofstream;
+using std::ios;
+using std::endl;
 
 
 
@@ -169,11 +176,48 @@ public:
 		}
 		return rt;
 	}
+
+
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// saving
+	int save()
+	{
+	    ////// 创造文件夹 /////////////
+	    _mkdir(name.c_str());
+	    string path;        //// not in use ///
+        path = name+"\\"+name+".s" ;
+
+		ofstream fout (  (path+name+".s").c_str(),ios::out);	// need change s
+
+		list<course>::iterator iter;
+		int amount;
+
+		///// Save student personal information //////
+		fout<<"personal info"<<endl;
+		fout<<name<<endl;
+		fout<<note<<endl;
+		fout<<"EOnote"<<endl;
+
+		///////// save course info /////////
+		for (iter=subject.begin(),amount=0;iter!=subject.end();iter++,amount++)
+		{
+			fout<<iter->getname()<<endl;	// 在学生的文件里创造课程的列表
+			iter->save(path);
+		}
+		return amount;
+	}
+
+
+
+
+
 private:
 
 
 	string name ;
 	list<course> subject;
 //	list<course>::iterator iter;	//doesn't seem necessary
-	string note="no note";
+	string note= "no note";
 };

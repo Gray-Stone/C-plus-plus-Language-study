@@ -1,30 +1,50 @@
 # depslib dependency file v1.0
-1430328472 source:c:\sorce.file\programe\c++ language\final\student\course.cpp
-	<string>
-	<vector>
-
-1430415933 source:c:\sorce.file\programe\c++ language\final\student\student.cpp
-	<vector>
-	<list>
-	<utility>
-	<string>
-	"course.cpp"
-
-1430328472 c:\sorce.file\programe\c++ language\final\student\course.cpp
-	<string>
-	<vector>
-
-1430326818 source:c:\sorce.file\programe\c++ language\final\main.cpp
+1435067103 source:d:\sorce.file\programe\c++ language\final\main.cpp
 	<iostream>
 	<list>
 	<string>
-	"student\student.cpp"
 	<limits>
+	<fstream>
+	<direct.h>
+	"student\student.cpp"
 
-1430242260 c:\sorce.file\programe\c++ language\final\student\student.cpp
+1434239708 d:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>
 	<string>
 	"course.cpp"
+	<fstream>
+	<iostream>
+	<direct.h>
+
+1434239875 d:\sorce.file\programe\c++ language\final\student\course.cpp
+	<string>
+	<vector>
+	<fstream>
+	<iostream>
+
+1434239875 source:d:\sorce.file\programe\c++ language\final\student\course.cpp
+	<string>
+	<vector>
+	<fstream>
+	<iostream>
+
+1434239708 source:d:\sorce.file\programe\c++ language\final\student\student.cpp
+	<vector>
+	<list>
+	<utility>
+	<string>
+	"course.cpp"
+	<fstream>
+	<iostream>
+	<direct.h>
+
+1434282368 d:\sorce.file\programe\c++ language\final\main2.cpp
+	<iostream>
+	<list>
+	<string>
+	<limits>
+	<fstream>
+	"student\student.cpp"
 

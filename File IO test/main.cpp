@@ -74,7 +74,10 @@ int main()
 		if (intemp=="print")
 		{
 			list<num>::iterator iter;
+			cout<<endl;
 			for(iter=a.begin();iter!=a.end();iter++){cout<<iter->name<<" "<<iter->a<<" "<<iter->b<<" "<<endl;}
+
+			cout<<endl;
 		}
 
 		////////////////// save /////////////////

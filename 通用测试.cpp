@@ -17,10 +17,9 @@ void changeone(int &a)
 
 int main ()
 {
-	vector<int> a (10,5);
-	vector<int>::iterator iter;
-	iter= a.begin();
-	changeone(*iter);
-	cout<<*iter<<endl;
+    string name ="hellow";
+    string path;
+    path = name+"\\"+name+".s";
+        cout<<path<<endl;
 
 }
