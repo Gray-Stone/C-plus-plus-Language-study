@@ -32,54 +32,13 @@ int main()
 
     list<student> stu;
 
-    for(;;)
+    for(;;) //// big for
     {
         ////// select function //////
         string intemp;
-        cout<< " modify / print (print all) / save " <<endl;
+        cout<< " student name / print (print all) / save " <<endl;
         cin>>intemp;
         cin.ignore( numeric_limits<streamsize>::max(),'\n');    //// clean up input stream
-
-            if (intemp== "modify")
-            {
-                list<student>::iterator iter;
-                string _name;
-                cout<< "please enter student name (add for adding a new student)"<<endl;
-                cin>>_name;
-                cin.ignore( numeric_limits<streamsize>::max(),'\n');    //// clean up input stream
-
-                ////// adding student //////
-                    if (_name=="add")
-                    {
-                        cout<< "please enter the name of the student" <<endl;
-                        cin>>_name;
-                        cout<< "please enter student name (add for adding a new student)"<<endl;
-                        student _student(_name); ////// 构造新的学生对象
-                        stu.push_back(_student);
-                        modify_student(_student);
-                        cout<<"end of a_modify"<<endl;
-                        stu.push_back(_student);
-
-                    }
-                    else
-                    {
-
-                        ////// search for the student //////
-                        for (iter=stu.begin();iter!=stu.end();iter++)
-                            {if (iter->getname()==_name) break;}
-                        if (iter==stu.end())
-                            {cout<<"didn't find the student"<<endl;} // 买有找到学生。
-                        else
-                        {
-
-                        cout<< "found";
-                        cout<<"  " <<iter->getname()<<endl;
-                        modify_student (*iter);
-                        }
-                    }
-
-            }
-
 
 
             //////////////////////////////////////////////////////////
@@ -92,7 +51,16 @@ int main()
 
             if (intemp=="print")
             {
+                list<student>::iterator iter = stu.begin() ;
+                ////// print all the names
+                   cout<<"     start of the list"<<endl;
+                for (;iter!=stu.end();iter++)
+                {
+                    // print name
+                    cout<<iter->getname()<<endl;
 
+                }
+                cout<<"     end of the list " <<endl;
             }
 
             //////////////////////////////////////////////////////////
@@ -102,7 +70,7 @@ int main()
             //////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////
 
-            if (intemp=="save")
+            else if (intemp=="save")
             {
                 list<student>::iterator iter;
                 ofstream nf ("names.t",ios::out); /////////// 保存所有名字的文件
@@ -111,7 +79,7 @@ int main()
                 /////////// 保存所有学生 ///////////
                 for (iter=stu.begin();iter!=stu.end();iter++)
                 {
-                    nf<< iter->getname() <<endl;	////在索引文件里保存名字
+                    nf<< iter->getname() <<"\n"<<endl;	////在索引文件里保存名字
 
                      _mkdir( (iter->getname()).c_str());///////// 创建文件夹
                        iter->save();     //// 调用student的函数，保存这个这个学生的信息//
@@ -123,8 +91,51 @@ int main()
 
             }
 
-            if (intemp=="exit")
+            else if (intemp=="exit")
                 break;
+
+            //////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////
+
+            else            ///// looking for student name
+            {
+                 list<student>::iterator iter;
+
+                string _name=intemp;
+             //   cout<< "please enter student name "<<endl;
+            //    cin>>_name;
+             //   cin.ignore( numeric_limits<streamsize>::max(),'\n');    //// clean up input stream
+
+                ////// search for the student //////
+                for (iter=stu.begin();iter!=stu.end();iter++)
+                    {if (iter->getname()==_name) break;}
+                if (iter==stu.end()) //// 没有找到学生
+                    {
+                        string templ;
+                        cout<<"didn't find the student"<<endl;
+                        cout<<"add to the list?"<<endl;
+                        cin>>templ;
+                        if (templ=="y")   //// add student
+                        {
+                            student _student(_name); ////// 构造新的学生对象
+                            modify_student(_student);
+                            stu.push_back(_student);
+                        }
+                    }
+                else
+                {
+
+                    cout<< "found";
+                    cout<<"  " <<iter->getname()<<endl;
+                    modify_student (*iter);
+                }
+
+
+            }
 
     }//// end of big for
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1435067103 source:d:\sorce.file\programe\c++ language\final\main.cpp
+1435209666 source:d:\sorce.file\programe\c++ language\final\main.cpp
 	<iostream>
 	<list>
 	<string>
@@ -8,7 +8,7 @@
 	<direct.h>
 	"student\student.cpp"
 
-1434239708 d:\sorce.file\programe\c++ language\final\student\student.cpp
+1435208801 d:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>
@@ -18,19 +18,19 @@
 	<iostream>
 	<direct.h>
 
-1434239875 d:\sorce.file\programe\c++ language\final\student\course.cpp
+1435208801 d:\sorce.file\programe\c++ language\final\student\course.cpp
 	<string>
 	<vector>
 	<fstream>
 	<iostream>
 
-1434239875 source:d:\sorce.file\programe\c++ language\final\student\course.cpp
+1435208801 source:d:\sorce.file\programe\c++ language\final\student\course.cpp
 	<string>
 	<vector>
 	<fstream>
 	<iostream>
 
-1434239708 source:d:\sorce.file\programe\c++ language\final\student\student.cpp
+1435208801 source:d:\sorce.file\programe\c++ language\final\student\student.cpp
 	<vector>
 	<list>
 	<utility>

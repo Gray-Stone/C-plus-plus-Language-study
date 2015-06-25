@@ -187,7 +187,7 @@ public:
 	    ////// 创造文件夹 /////////////
 	    _mkdir(name.c_str());
 	    string path;        //// not in use ///
-        path = name+"\\"+name+".s" ;
+        path = name+"\\" ;
 
 		ofstream fout (  (path+name+".s").c_str(),ios::out);	// need change s
 

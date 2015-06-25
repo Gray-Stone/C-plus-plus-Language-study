@@ -1,4 +1,0 @@
-start
-tom
-jerry
-end
